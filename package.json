@@ -16,8 +16,14 @@
   "contributes": {
     "commands": [
       {
-        "command": "minetest-toolkit.helloWorld",
-        "title": "Hello World"
+        "command": "minetest-toolkit.newGame",
+        "title": "Minetest Toolkit: New Game"
+      }
+    ],
+    "jsonValidation": [
+      {
+        "fileMatch": ".cdb.json",
+        "url": "https://content.minetest.net/api/cdb_schema"
       }
     ]
   },
