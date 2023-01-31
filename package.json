@@ -3,6 +3,7 @@
   "displayName": "Minetest Toolkit",
   "description": "",
   "version": "0.0.1",
+  "pricing": "Free",
   "engines": {
     "vscode": "^1.74.0"
   },
