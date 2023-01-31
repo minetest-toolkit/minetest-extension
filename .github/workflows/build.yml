@@ -1,0 +1,42 @@
+---
+on:
+  push:
+    branches:
+      - master
+  release:
+    types:
+      - created
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Test on Linux
+        run: xvfb-run -a npm test
+        if: runner.os == 'Linux'
+      - name: Test
+      - run: npm test
+        if: runner.os != 'Linux'
+
+      - name: Build
+        run: vsce package
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: minetest-toolkit
+          path: "*.vsix"
