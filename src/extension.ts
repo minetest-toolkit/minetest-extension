@@ -10,9 +10,6 @@ export function activate(context: vscode.ExtensionContext) {
 
   let settings = vscode.workspace.getConfiguration("minetest-toolkit");
 
-  // The command has been defined in the package.json file
-  // Now provide the implementation of the command with registerCommand
-  // The commandId parameter must match the command field in package.json
   let disposable = vscode.commands.registerCommand(
     "minetest-toolkit.helloWorld",
     () => {
@@ -22,8 +19,12 @@ export function activate(context: vscode.ExtensionContext) {
     }
   );
 
+  // Update import paths
+  update_import_paths();
+
   // Execute update_import_paths when the "context" configuration value changed in VSCode
   vscode.workspace.onDidChangeConfiguration((e) => {
+    console.log("called");
     if (e.affectsConfiguration("minetest-toolkit.context")) {
       update_import_paths();
     }
