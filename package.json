@@ -8,6 +8,9 @@
   "engines": {
     "vscode": "^1.74.0"
   },
+  "extensionDependencies": [
+    "sumneko.lua"
+  ],
   "categories": [
     "Other"
   ],
