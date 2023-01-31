@@ -34,7 +34,7 @@ jobs:
         if: runner.os != 'Linux'
 
       - name: Build
-        run: vsce package
+        run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-artifact@v2

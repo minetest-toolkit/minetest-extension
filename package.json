@@ -30,6 +30,8 @@
     ]
   },
   "scripts": {
+    "build": "vsce package",
+    "publish": "vsce publish",
     "vscode:prepublish": "npm run package",
     "compile": "webpack",
     "watch": "webpack --watch",
