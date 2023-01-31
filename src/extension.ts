@@ -1,26 +1,59 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
-import * as vscode from 'vscode';
+import * as vscode from "vscode";
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
+import newGame from "./commands/new_game";
+import update_import_paths from "./utils/update_import_paths";
+
 export function activate(context: vscode.ExtensionContext) {
+  console.log(
+    'Congratulations, your extension "minetest-toolkit" is now active!'
+  );
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "minetest-toolkit" is now active!');
+  let settings = vscode.workspace.getConfiguration("minetest-toolkit");
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('minetest-toolkit.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from Minetest Toolkit!');
-	});
+  // The command has been defined in the package.json file
+  // Now provide the implementation of the command with registerCommand
+  // The commandId parameter must match the command field in package.json
+  let disposable = vscode.commands.registerCommand(
+    "minetest-toolkit.helloWorld",
+    () => {
+      vscode.window.showInformationMessage(
+        "Hello World from Minetest Toolkit!"
+      );
+    }
+  );
 
-	context.subscriptions.push(disposable);
+  // Execute update_import_paths when the "context" configuration value changed in VSCode
+  vscode.workspace.onDidChangeConfiguration((e) => {
+    if (e.affectsConfiguration("minetest-toolkit.context")) {
+      update_import_paths();
+    }
+  });
+
+  let enableGame = vscode.commands.registerCommand(
+    "minetest-toolkit.toggleGame",
+    () => {
+      settings.update("context", "game");
+      update_import_paths();
+
+      vscode.window.showInformationMessage(
+        "Minetest Toolkit Game Context Activated!"
+      );
+    }
+  );
+
+  let disable = vscode.commands.registerCommand(
+    "minetest-toolkit.disable",
+    () => {
+      settings.update("context", "disabled");
+      update_import_paths();
+
+      vscode.window.showInformationMessage(
+        "Minetest Toolkit Game Context Activated!"
+      );
+    }
+  );
+
+  context.subscriptions.push(disposable, enableGame, disable, newGame);
 }
 
-// This method is called when your extension is deactivated
 export function deactivate() {}

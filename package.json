@@ -1,5 +1,6 @@
 {
   "name": "minetest-toolkit",
+  "publisher": "minetest-toolkit",
   "displayName": "Minetest Toolkit",
   "description": "",
   "version": "0.0.1",
@@ -25,8 +26,29 @@
       {
         "command": "minetest-toolkit.newGame",
         "title": "Minetest Toolkit: New Game"
+      },
+      {
+        "command": "minetest-toolkit.toggleGame",
+        "title": "Minetest Toolkit: Enable Game Context"
+      },
+      {
+        "command": "minetest-toolkit.disable",
+        "title": "Minetest Toolkit: Disable Context"
       }
     ],
+    "configuration": {
+      "properties": {
+        "minetest-toolkit.context": {
+          "oneOf": [
+            "game",
+            "mod",
+            "disabled"
+          ],
+          "default": "disabled",
+          "description": "Minetest Toolkit Status"
+        }
+      }
+    },
     "jsonValidation": [
       {
         "fileMatch": ".cdb.json",
