@@ -4,6 +4,7 @@
   "description": "",
   "version": "0.0.1",
   "pricing": "Free",
+  "repository": "https://github.com/minetest-toolkit/minetest-extension",
   "engines": {
     "vscode": "^1.74.0"
   },
