@@ -17,9 +17,6 @@
     "Programming Languages",
     "Snippets"
   ],
-  "activationEvents": [
-    "onCommand:minetest-toolkit.helloWorld"
-  ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
@@ -28,7 +25,7 @@
         "title": "Minetest Toolkit: New Game"
       },
       {
-        "command": "minetest-toolkit.toggleGame",
+        "command": "minetest-toolkit.enableGame",
         "title": "Minetest Toolkit: Enable Game Context"
       },
       {

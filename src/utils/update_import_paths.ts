@@ -20,8 +20,6 @@ export default function () {
       ? []
       : (luaConfig.get("workspace.library") as string[]);
 
-  console.log(library && extensionPath);
-
   if (extensionPath) {
     // Determine the paths to use based on the context
 
