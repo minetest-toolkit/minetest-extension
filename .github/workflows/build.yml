@@ -28,8 +28,9 @@ jobs:
       - name: Test on Linux
         run: xvfb-run -a npm test
         if: runner.os == 'Linux'
+
       - name: Test
-      - run: npm test
+        run: npm test
         if: runner.os != 'Linux'
 
       - name: Build
