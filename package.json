@@ -12,7 +12,9 @@
     "sumneko.lua"
   ],
   "categories": [
-    "Other"
+    "Linters",
+    "Programming Languages",
+    "Snippets"
   ],
   "activationEvents": [
     "onCommand:minetest-toolkit.helloWorld"
