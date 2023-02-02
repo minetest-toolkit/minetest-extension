@@ -1,5 +1,7 @@
 # Minetest Toolkit
 
+[![Build](https://github.com/minetest-toolkit/minetest-extension/actions/workflows/build.yml/badge.svg)](https://github.com/minetest-toolkit/minetest-extension/actions/workflows/build.yml)
+
 This is a VSCode extension which is made to turn VSCode into an IDE for the Minetest engine.
 
 ## Features
