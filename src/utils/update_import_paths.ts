@@ -26,9 +26,12 @@ export default function () {
     let paths: string[] = [];
 
     if (context === "game") {
-      paths = [extensionPath + "/import"];
+      paths = [
+        extensionPath + "/headers/ssm",
+        extensionPath + "/headers/common",
+      ];
     } else if (context === "mod") {
-      paths = [];
+      paths = [extensionPath + "/headers/common"];
     } else {
       paths = [];
     }

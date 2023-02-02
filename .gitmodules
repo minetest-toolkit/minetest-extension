@@ -1,0 +1,6 @@
+[submodule "headers/ssm"]
+	path = headers/ssm
+	url = https://github.com/minetest-toolkit/minetest-api-def-ssm
+[submodule "headers/common"]
+	path = headers/common
+	url = https://github.com/minetest-toolkit/minetest-api-def-common
