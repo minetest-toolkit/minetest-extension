@@ -12,6 +12,12 @@
   "extensionDependencies": [
     "sumneko.lua"
   ],
+  "activationEvents": [
+    "onCommand:*",
+    "onLanguage:lua",
+    "workspaceContains:mod.conf",
+    "workspaceContains:game.conf"
+  ],
   "categories": [
     "Linters",
     "Programming Languages",
@@ -19,6 +25,18 @@
   ],
   "main": "./dist/extension.js",
   "contributes": {
+    "languages": [
+      {
+        "id": "settingtypes",
+        "aliases": [
+          "Settingtypes"
+        ],
+        "filenames": [
+          "settingtypes.txt"
+        ],
+        "configuration": "./src/providers/settingtypes/configuration.json"
+      }
+    ],
     "commands": [
       {
         "command": "minetest-toolkit.newGame",
@@ -31,12 +49,16 @@
       {
         "command": "minetest-toolkit.disable",
         "title": "Minetest Toolkit: Disable Context"
+      },
+      {
+        "command": "minetest-toolkit.setupCIGithub",
+        "title": "Minetest Toolkit: Setup GitHub CI"
       }
     ],
     "configuration": {
       "properties": {
         "minetest-toolkit.context": {
-          "oneOf": [
+          "enum": [
             "game",
             "mod",
             "disabled"
